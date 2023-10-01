@@ -39,24 +39,26 @@ var config = {
 	// true, force serveronly mode, because you want to.. no UI on this device
 
 	modules: [
-	/*	{
+		/*	
+		{
 			module: "alert",
 		},
+
 		{
 			module: "updatenotification",
 			position: "top_bar"
 		},
 
-	*/		
+		*/		
 
-// ************** CLOCK **********************
+//------------- CLOCK ------------------------------------
 		{
 			module: "clock",
 			position: "top_left"
 		},
 
-// ************** CALENDAR **********************
 
+//------------- CALENDAR ------------------------------------
 		{
 			module: "calendar",
 			header: "Calendar",
@@ -71,7 +73,13 @@ var config = {
 					},
 					{
 						symbol: "truck",
-						url: "https://calendar.google.com/calendar/ical/manashiEXAMPLE.ics", //You need to generate your own unique URL
+						url: "https://calendar.google.com/calendar/ical/<EXAMPLE>/basic.ics",
+						maximumEntries: "10",
+						maximumNumberOfDays: "7"	
+					},
+					{
+						symbol: "calendar",
+						url: "https://calendar.google.com/calendar/ical/<EXAMPLE>/basic.ics",
 						maximumEntries: "10",
 						maximumNumberOfDays: "7"	
 					}
@@ -81,7 +89,7 @@ var config = {
 			}
 		},
 
-// ************** NEWSFEED **********************
+//---------------- NEWSFEED ------------------------------------
 
 		{
 			module: "newsfeed",
@@ -111,9 +119,31 @@ var config = {
 			}
 		},
 
+//------------------------MMM-octomirror----------------------------------------
+	/*
+	{
+				module: "octomirror-module",
+				position: "top_right",
+				config: {
+					url: "http://octopi.local",
+					api_key: "949B4C9976F141E0A1DB9150BE3540CE",
+					showStream: false,
+					interactive: false
+				}
 
-// ************** WALLPAPER **********************
+	},*/
 
+//------------------------MMM-WatchDog----------------------------------------
+		{
+			module: 'MMM-WatchDog',
+			config: {
+				interval: 5,
+				timeout: 15,
+				// See 'Configuration options' for more information.
+			}
+		},
+
+//------------------------MMM-Wallpaper----------------------------------------
 	{
 			module: "MMM-Wallpaper",
 			position: "fullscreen_below",
@@ -122,8 +152,8 @@ var config = {
 				crossfade: false,
 				//filter: "grayscale(0.5) brightness(0.4)",
 				filter: "grayscale(0.25) brightness(0.5)",
-				caption: false,
 				size: "cover",
+				caption: false,
 				slideInterval: 3 * 60 * 1000
 				//orientation: "vertical",
 				//maximumEntries: 10,
